@@ -19,6 +19,11 @@ public class BookController {
        return bookService.getAllBooks();
     }
 
+    @GetMapping("/books/secured")
+    public List<Book> getAllBooksSecured(){
+        return bookService.getAllBooks();
+    }
+
     @GetMapping("/books/{id}")
     public Book getAllBooks(@PathVariable int id){
         return bookService.getBookById(id).orElse(null);
@@ -39,7 +44,7 @@ public class BookController {
         bookService.updateBook(book);
     }
 
-    @PostMapping("/books/filter")
+    @PostMapping("/filter")
     public List<Book> getByYearAndAuthor(@RequestBody Book book){
         return bookService.getByYearAndAuthor(book.getYear(), book.getAuthor());
     }
