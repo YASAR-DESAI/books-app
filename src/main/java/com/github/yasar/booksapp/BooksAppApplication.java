@@ -20,6 +20,8 @@ public class BooksAppApplication {
 		http.authorizeHttpRequests(authorize -> authorize
 						.requestMatchers("/swagger-ui",
 								"/books",
+								"/",
+								"/**",
 								"/swagger-ui/**",
 								"/v3/api-docs/**",
 								"/actuator",

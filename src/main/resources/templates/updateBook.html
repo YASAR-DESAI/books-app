@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Form</title>
+
+    <style>
+        body {
+            background-color: #f5f5f5; /* Light grey background color for the page */
+            font-family: Arial, sans-serif; /* Set a default font family */
+        }
+
+        h1 {
+            color: #333; /* Dark text color for the header */
+            text-align: center; /* Center-align the header */
+            margin-top: 20px; /* Add some top margin for spacing */
+        }
+
+        form {
+            width: 50%; /* Adjust the width of the form */
+            margin: auto; /* Center-align the form */
+            background-color: #fff; /* White background color for the form */
+            padding: 20px; /* Add padding for a better appearance */
+            border-radius: 8px; /* Add rounded corners to the form */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+            margin-top: 20px; /* Add some top margin for spacing */
+        }
+
+        input {
+            width: 100%; /* Make the input fields fill the entire width of the form */
+            margin-bottom: 15px; /* Add some bottom margin for spacing between fields */
+            padding: 10px; /* Add padding for a better appearance */
+            box-sizing: border-box; /* Include padding and border in the element's total width and height */
+        }
+
+        button {
+            background-color: #007bff; /* Blue background color for the button */
+            color: #fff; /* White text color for the button */
+            padding: 10px 20px; /* Add padding for a better button appearance */
+            border: none; /* Remove the default button border */
+            border-radius: 4px; /* Add rounded corners to the button */
+            cursor: pointer; /* Add a pointer cursor on hover */
+        }
+    </style>
+
+</head>
+<body>
+
+<h1> Update book Info</h1>
+
+<form action="#" th:action="@{/saveBook}" method="POST" th:object="${book}">
+    <input type="hidden" th:field="*{id}">
+    <input type="text" th:field="*{name}" placeholder="Book Name">
+    <input type="text" th:field="*{author}" placeholder="Author's Name">
+    <input type="text" th:field="*{year}" placeholder="Year of publication">
+
+    <button type="submit">Save Book</button>
+
+</form>
+
+</body>
+</html>

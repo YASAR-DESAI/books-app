@@ -3,6 +3,7 @@ package com.github.yasar.booksapp.service;
 import com.github.yasar.booksapp.model.Book;
 import com.github.yasar.booksapp.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,8 +26,8 @@ public class BookController {
     }
 
     @GetMapping("/books/{id}")
-    public Book getAllBooks(@PathVariable int id){
-        return bookService.getBookById(id).orElse(null);
+    public Book getBookById(@PathVariable int id){
+        return bookService.getBookById(id);
     }
 
     @DeleteMapping("/books")

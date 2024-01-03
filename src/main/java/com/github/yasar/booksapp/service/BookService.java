@@ -4,6 +4,7 @@ import com.github.yasar.booksapp.model.Book;
 import com.github.yasar.booksapp.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.webjars.NotFoundException;
 
 import java.util.List;
 import java.util.Optional;
@@ -38,7 +39,12 @@ public class BookService {
         return bookRepository.getByYearAndAuthor(year, name);
     }
 
-    public Optional<Book> getBookById(int id) {
-        return bookRepository.findById(id);
+    public Book getBookById(int id) {
+        Optional<Book> book = bookRepository.findById(id);
+        if(book.isPresent())
+            return book.get();
+
+        System.out.printf("No Book with id {} found",id);
+        throw  new NotFoundException("No Book Found!!");
     }
 }
